@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+</head>
+<body class="markdown github">
+  <h1>SQL Server 운영</h1>
+  <h2>Port 변경</h2>
+  <ul>
+    <li>
+      SQL Server 기본 포트는 1433 이다. 포트 변경하는 방법에 대해 알아보자.
+    </li>
+  </ul>
+
+  <hr />
+
+  <ol>
+    <li>
+      시작 > SQL Server Configuration Manager<br />
+      <img src="./img/10_port.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      SQL Server 네트워크 구성 > DB 인스턴스 > TCP/IP 속성<br />
+      <img src="./img/11_port.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      IP ALL > TCP 포트에 변경할 포트 입력<br />
+      <img src="./img/12_port.png" alt="" class="img-large m-l-xs" />
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        포트 변경 후 다른 사람의 SQL Server 로 접속하려면 어떻게 해야될까?<br />
+        <img src="./img/13_port_ssms.jpg" alt="" class="img-medium m-l-xs" />
+      </li>
+    </ol>
+  </div>
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./auth.html">이전</a>
+  <a href="./configure.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

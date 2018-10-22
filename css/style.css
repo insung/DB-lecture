@@ -1495,6 +1495,11 @@ footer {
   height: auto;
 }
 
+.img-small {
+  width: 300px;
+  height: auto;
+}
+
 .m-l-md {
   margin-left: 40px;
 }
@@ -1513,6 +1518,10 @@ footer {
 
 .m-b-xs {
   margin-bottom: 10px;
+}
+
+.m-r-xs {
+  margin-right: 20px !important;
 }
 
 .practice {
