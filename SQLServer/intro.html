@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+</head>
+<body class="markdown github">
+  <h1>SQL Server 운영</h1>
+  <h2>설치 전에 알아야할 내용</h2>
+  <ol>
+    <li>인스턴스</li>    
+    <li>인증모드</li>
+    <li>서비스 계정</li>
+  </ol>
+
+  <h3>인스턴스</h3>
+  <p>
+      인스턴스란 Database 엔진을 말한다.
+  </p>
+  <ul>
+    <li>
+      SQL Server 하나의 인스턴스에 여러 개의 데이터베이스를 가질 수 있다.
+    </li>
+    <li>
+      하나의 시스템에 여러 개의 인스턴스를 가질 수 있다.
+    </li>
+  </ul>
+
+  <h3>인증모드</h3>
+  <p>
+    인증모드란 SQL Server 로 접속할 때 사용될 방식을 말한다.
+  </p>
+  <ul>
+    <li>
+      윈도우 인증 모드: 윈도우 계정을 통해 SQL Server 에 접속 가능한 방법
+    </li>
+    <li>
+      혼합모드: 윈도우 계정 또는 SQL Server 에서 만든 계정으로 접속 가능한 방법
+    </li>
+  </ul>
+  <img src="./img/1_mode.png" alt="" class="img-large m-l-md" />
+
+  <h3>서비스 계정</h3>
+  <p>
+    SQL Server 인스턴스가 실행될 Windows Service 의 계정을 말한다.
+  </p>
+  <img src="./img/8_service_account.png" alt="" class="img-xlarge m-l-md" />
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">이전</a>
+  <a href="./install.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
