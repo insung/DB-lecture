@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h1>백업과 복원</h1>
+
+  <h3>복구 모델</h3>
+
+  <ul>
+    <li>
+      복구 모델은 어떤 것이 있는지 알아보자.
+    </li>
+  </ul>
+
+  <h2>SQL Server 복구 모델</h2>
+  <ul>
+    <li>
+      전체 (Full): 모든 트랜잭션을 로그에 기록함. 문제 발생 시점까지 복구 가능하고, 원하는 시점으로 복원할 수 있음
+    </li>
+    <li>
+      대량 로그 (Bulk-logged): 데이터가 중요하지만, 대량의 벌크 로그는 남기지 않도록 할 경우
+    </li>
+    <li>
+      단순 (Simple): 트랜잭션이 완료되면 자동으로 트랜잭션 로그를 삭제하고, 테스트나 개발에 적합
+    </li>
+  </ul>
+
+  <h2>복구 모델 변경 방법</h2>
+  <ul>
+    <li>
+      데이터베이스 > 속성<br />
+      <img src="./img/32_fg_add.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      옵션 > 복구 모델 선택 후 확인<br />
+      <img src="./img/43_recovery.png" alt="" class="img-large m-l-xs" />
+    </li>
+  </ul>
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./backup.html">이전</a>
+  <a href="./backup_schedule.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

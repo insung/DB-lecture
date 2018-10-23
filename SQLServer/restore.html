@@ -13,31 +13,90 @@
 
   <ul>
     <li>
-      복구 모델은 어떤 것이 있는지 알아보자.
-    </li>
-    <li>
-      복구 하는 방법에 대해 알아보자.
+      복원에 대해 알아보자.
     </li>
   </ul>
 
-  <h2>SQL Server 복구 모델</h2>
+  <h2>SQL Server 복원 옵션</h2>
   <ul>
     <li>
-      전체 (Full): 모든 트랜잭션을 로그에 기록함. 문제 발생 시점까지 복구 가능하고, 원하는 시점으로 복원할 수 있음
+      Restore With Recovery: 데이터베이스를 복원하는 과정에서 더 이상 복원할 백업 파일이 없는 경우 복원 과정을 마무리하기 위해 사용하는 옵션
     </li>
     <li>
-      대량 로그 (Bulk-logged): 데이터가 중요하지만, 대량의 벌크 로그는 남기지 않도록 할 경우
-    </li>
-    <li>
-      단순 (Simple): 트랜잭션이 완료되면 자동으로 트랜잭션 로그를 삭제하고, 테스트나 개발에 적합
+      Restore With NoRecovery: 데이터베이스를 복원 중 상태로 유지하며 추가 트랜잭션 로그를 복원할 수 있는 옵션
     </li>
   </ul>
+
+  <h2>데이터베이스 복원 방법</h2>
+  <ol>
+    <li>
+      test 데이터베이스 삭제<br />
+      <img src="./img/44_restore.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      데이터베이스 복원<br />
+      <img src="./img/45_restore.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      장치 선택 (경로 입력) 후 확인<br />
+      <img src="./img/46_restore.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      test 테이블 조회 (아무것도 없음)<br />
+      <pre><code>select * from test;</code></pre>
+    </li>
+    <li>
+      차등 백업 복원 진행<br />
+      <img src="./img/47_restore.png" alt="" class="img-xlarge m-l-xs" />
+    </li>
+    <li>
+      차등 백업 파일 입력 후 복원 진행<br />
+      <img src="./img/51_restore.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      "데이터베이스가 올바른 이전 상태로.." 차등 백업 에러 발생!<br />
+      <img src="./img/48_restore_error.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      데이터베이스 삭제 후 다시 복원 진행 (1번, 2번, 3번 참고)
+    </li>
+    <li>
+      복원 > 옵션 > 복구 상태에서 "Resotre With Norecovery" 선택<br />
+      <img src="./img/49_restore.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      test 데이터베이스는 "복원 중..." 이라고 표시됨<br />
+      <img src="./img/50_restore.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      다시 차등 백업 복원 진행 (5번, 6번 참고) 복원 시, 옵션 > 복구 상태에서 "Resotre With Norecovery" 선택<br />
+      <img src="./img/52_restore.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      트랜잭션 로그 백업파일까지 복원을 진행해 보자. 이때 복원 시, 옵션 > 복구 상태 "Resotre With Recovery" 선택
+    </li>
+    <li>
+      test 테이블을 다시 조회하면 id 가 5번까지 조회될 것이다.
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        Restore With Recovery 복원 옵션이 아직 이해가 안되었다면 계속 반복하여 이해될때까지 백업, 복원 테스트를 해보자.
+      </li>
+      <li>
+        복원 시 에러가 발생했다면, 구글 검색하여 어떤 내용인지 알아보고 스스로 대처해 보자.
+      </li>
+    </ol>
+  </div>
 
   <br /><br />
   <hr />
   <a href="../index.html">처음으로</a>&nbsp;&nbsp;
   <a href="./backup.html">이전</a>
-  <a href="./backup_schedule.html" class="pull-right">다음</a>
+  <a href="./recovery.html" class="pull-right">다음</a>
   <footer>
     powered by insung / last modified date: 2018-10
   </footer>
