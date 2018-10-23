@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <title>인성의 DB강의</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
 </head>
-<body class="markdown github">
+<body>
   <h1>SQL Server 데이터베이스 구조</h1>
 
-  <h4>파일 그룹</h4>
+  <h3>파일 그룹</h3>
 
   <ul>
     <li>
@@ -54,8 +55,24 @@
   <h2>파일 그룹 생성 방법</h2>
   <ol>
     <li>
-      데이터베이스 > 새 데이터베이스<br />
-      <img src="./img/27_fg_add.jpg" alt="" class="img-medium m-l-xs" />
+      데이터베이스 > 속성<br />
+      <img src="./img/32_fg_add.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      파일 그룹 > 파일 그룹 추가 > 이름 입력 후 확인<br />
+      <img src="./img/33_fg_add.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      파일 > 파일 추가 > 이름 입력 > 파일 그룹 선택 후 확인<br />
+      <img src="./img/34_fg_add.png" alt="" class="img-xlarge m-l-xs" />
+    </li>
+    <li>
+      테이블 생성 시, 파일 그룹 지정<br />
+      <pre><code>create table test2 (
+  id int,
+  name varchar(50),
+  description varchar(255)
+) on SECONDARY</code></pre>
     </li>
   </ol>
 

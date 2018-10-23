@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <title>인성의 DB강의</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
 </head>
 <body class="markdown github">
   <h1>SQL Server 운영 기초</h1>
 
-  <h4>로그인 계정</h4>
+  <h3>로그인 계정</h3>
 
   <ul>
     <li>
@@ -21,17 +22,29 @@
   <ol>
     <li>
       데이터베이스 > 보안 > 로그인 > 새 로그인<br />
-      <img src="./img/17_login.png" alt="" class="img-large m-l-xs" />
+      <img src="./img/17_login.png" alt="" class="img-medium m-l-xs" />
     </li>
     <li>
       이름 입력, SQL Server 인증 선택, 암호 정책 강제 적용 해제<br />
       <img src="./img/18_login.png" alt="" class="img-large m-l-xs" />
     </li>
     <li>
-      사용자 매핑 > 역할 멤버에 체크<br />
+      서버 역할에 체크<br />
+      <img src="./img/28_role_server.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      사용자 매핑 > 데이터베이스 역할 멤버에 체크<br />
       <img src="./img/19_login.png" alt="" class="img-large m-l-xs" />
     </li>
   </ol>
+
+  <h2>서버 역할</h2>
+
+  <img src="./img/29_role_server.png" alt="" class="img-large m-l-xs" />
+
+  <h2>데이터베이스 역할 멤버</h2>
+
+  <img src="./img/27_role.png" alt="" class="img-large m-l-xs" />
 
   <div class="practice">
     <h3>Let's Prcactice</h3>
@@ -41,6 +54,12 @@
       </li>
       <li>
         최신 SQL Server 는 sa 계정을 허용하지 않는다. 그 이유는 무엇일까?
+      </li>
+      <li>
+        암호 정책 강제 적용을 체크 해서 사용해 보자.
+      </li>
+      <li>
+        서버 역할에서 sysadmin 역할이 무엇인지 알아보자.
       </li>
     </ol>
   </div>

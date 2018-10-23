@@ -4,17 +4,19 @@
   <meta charset="utf-8" />
   <title>인성의 DB강의</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
 </head>
 <body class="markdown github">
   <h1>SQL Server 운영 기초</h1>
-  <h2>Port 변경</h2>
+
+  <h3>Port 변경</h3>
   <ul>
     <li>
       SQL Server 기본 포트는 1433 이다. 포트 변경하는 방법에 대해 알아보자.
     </li>
   </ul>
 
-  <hr />
+  <h2>Port 변경 방법</h2>
 
   <ol>
     <li>
@@ -27,7 +29,7 @@
     </li>
     <li>
       IP ALL > TCP 포트에 변경할 포트 입력<br />
-      <img src="./img/12_port.png" alt="" class="img-large m-l-xs" />
+      <img src="./img/12_port.png" alt="" class="img-medium m-l-xs" />
     </li>
   </ol>
 
@@ -35,8 +37,14 @@
     <h3>Let's Prcactice</h3>
     <ol>
       <li>
-        포트 변경 후 다른 사람의 SQL Server 로 접속하려면 어떻게 해야될까?<br />
-        <img src="./img/13_port_ssms.jpg" alt="" class="img-medium m-l-xs" />
+        포트 변경 후 다른 사람의 SQL Server 로 접속하려면 어떻게 해야될까? 
+        <a id="answer_1_btn" href="#answer_1">정답 보기</a><br />
+        <img id="answer_1" src="./img/13_port_ssms.png" alt="" class="img-medium m-l-xs" hidden="true" />
+      </li>
+      <li>
+        서버 주소 및 포트를 정확히 입력했는데, 접속이 안된다면 무엇 때문일까?
+        <a id="answer_2_btn" href="#answer_2">정답 보기</a><br />
+        <img id="answer_2" src="./img/30_firewall.png" alt="" class="img-large m-l-xs" hidden="true" />
       </li>
     </ol>
   </div>
@@ -49,5 +57,16 @@
   <footer>
     powered by insung / last modified date: 2018-10
   </footer>
+
+  <script>
+    document.getElementById("answer_1_btn").addEventListener("click", function() {
+      document.getElementById("answer_1").hidden = false;
+      document.getElementById("awesome").hidden = false;
+    }, false);
+
+    document.getElementById("answer_2_btn").addEventListener("click", function() {
+      document.getElementById("answer_2").hidden = false;
+    }, false);
+  </script>
 </body>
 </html>
