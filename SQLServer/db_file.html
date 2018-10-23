@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+</head>
+<body class="markdown github">
+  <h1>SQL Server 데이터베이스 구조</h1>
+
+  <h4>파일 그룹</h4>
+
+  <ul>
+    <li>
+      SQL Server 파일 그룹에 대해서 알아보자.
+    </li>
+  </ul>
+
+  <h2>파일 그룹</h2>
+  <ul>
+    <li>
+      파일 그룹은 논리적 관점에서 데이터베이스를 관리하기 위함
+    </li>
+    <li>
+      데이터베이스 생성 시 기본적으로 데이터 파일(.mdf) 과 로그 파일(.ldf) 그리고 하나의 PRIMARY 파일그룹으로 생성됨
+    </li>
+    <li>
+      데이터베이스 파일 및 파일 그룹을 어떤 구조로 생성하냐에 따라 성능 향상에 도움이 됨
+    </li>
+  </ul>
+
+  <h2>파일 그룹 사용 예</h2>
+  <ul>
+    <li>
+      아래 그림은 하나의 데이터 파일 크기가 초과한 경우, 관리의 편리함을 위해 여러 개의 데이터 파일로 사용하는 경우임<br />
+      <img src="./img/25_filegroup.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      관리에는 이로울 수 있지만 SQL Server 성능 향상에 도움이 되지 않음<br /><br />
+    </li>
+    <li>
+      아래는 한 파일 그룹의 파일들을 서로 다른 디스크에 존재하도록 배치하면, 디스크 I/O 를 향상 시킬 수 있음<br />
+      <img src="./img/26_filegroup.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      예를 들어, A라는 테이블은 Primary 파일 그룹에 생성하고, A테이블의 인덱스는 Secondary 파일 그룹에 생성한다면, 해당 테이블 검색 시 성능이 향상 될 것임
+    </li>
+  </ul>
+
+  <div class="m-l-md">
+    <a href="http://jkmoon.tistory.com/entry/%ED%8C%8C%EC%9D%BC%EA%B7%B8%EB%A3%B9%EC%9D%98-%EA%B0%9C%EB%85%90" target="_blank">출처: jkmoon.tistory.com/</a>
+  </div>
+
+  <h2>파일 그룹 생성 방법</h2>
+  <ol>
+    <li>
+      데이터베이스 > 새 데이터베이스<br />
+      <img src="./img/27_fg_add.jpg" alt="" class="img-medium m-l-xs" />
+    </li>
+  </ol>
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./db_architecture.html">이전</a>
+  <a href="./restore.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
