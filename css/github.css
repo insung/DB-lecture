@@ -183,13 +183,13 @@ ul, ol {
   padding-left: 30px;
 }
 
-ul :first-child, ol :first-child {
+/* ul :first-child, ol :first-child {
   margin-top: 0;
 }
 
 ul :last-child, ol :last-child {
   margin-bottom: 0;
-}
+} */
 
 dl {
   padding: 0;
@@ -410,5 +410,5 @@ pre {
 
 pre code, pre tt {
   background-color: transparent;
-  border: none;
+  border: none;  
 }

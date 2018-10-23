@@ -4,18 +4,32 @@
   <meta charset="utf-8" />
   <title>인성의 DB강의</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
 </head>
-<body class="markdown github">
+<body>
   <h1>백업과 복원</h1>
 
-  <h4>데이터베이스 복원</h4>
+  <h3>데이터베이스 복원</h3>
 
   <ul>
     <li>
-      SQL Server 2017 Express 설치 (<a href="https://www.microsoft.com/ko-kr/sql-server/sql-server-downloads" target="_blank">링크</a>)
+      복구 모델은 어떤 것이 있는지 알아보자.
     </li>
     <li>
-      SQL Server Management Studio 17.9 설치 (<a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017" target="_blank">링크</a>)
+      복구 하는 방법에 대해 알아보자.
+    </li>
+  </ul>
+
+  <h2>SQL Server 복구 모델</h2>
+  <ul>
+    <li>
+      전체 (Full): 모든 트랜잭션을 로그에 기록함. 문제 발생 시점까지 복구 가능하고, 원하는 시점으로 복원할 수 있음
+    </li>
+    <li>
+      대량 로그 (Bulk-logged): 데이터가 중요하지만, 대량의 벌크 로그는 남기지 않도록 할 경우
+    </li>
+    <li>
+      단순 (Simple): 트랜잭션이 완료되면 자동으로 트랜잭션 로그를 삭제하고, 테스트나 개발에 적합
     </li>
   </ul>
 

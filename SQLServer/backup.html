@@ -4,25 +4,98 @@
   <meta charset="utf-8" />
   <title>인성의 DB강의</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
 </head>
-<body class="markdown github">
+<body>
   <h1>백업과 복원</h1>
 
-  <h4>데이터베이스 백업</h4>
+  <h3>데이터베이스 백업</h3>
 
   <ul>
     <li>
-      SQL Server 2017 Express 설치 (<a href="https://www.microsoft.com/ko-kr/sql-server/sql-server-downloads" target="_blank">링크</a>)
-    </li>
-    <li>
-      SQL Server Management Studio 17.9 설치 (<a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017" target="_blank">링크</a>)
+      데이터베이스 백업하는 방법과 종류는 어떤 것이 있는지 알아보자.
     </li>
   </ul>
+
+  <h2>SQL Server 백업 종류</h2>
+  <ul>
+    <li>
+      전체 백업 (Full): 데이터베이스를 구성하는 모든 데이터를 백업하고 동시에 그러한 데이터를 복구할 수 있을 만큼의 로그를 백업
+    </li>
+    <li>
+      차등 백업 (Diffrential): 가장 마지막 전체 백업 이후에 변경된 데이터만을 백업
+    </li>
+    <li>
+      트랜잭션 로그 백업 (Log): 트랜잭션 로그 파일을 백업
+    </li>
+  </ul>
+
+  <h2>SQL Server 백업 특징</h2>
+  <ul>
+    <li>
+      반드시 한 번은 전체 백업을 받고, 차등 백업 및 트랜잭션 로그 백업을 해야 한다.
+    </li>
+    <li>
+      차등 백업은 반드시 이전에 백업했던 파일들과 전체 백업한 파일이 있어야 함. 파일 한 개라도 분실하면 소용없음
+    </li>
+  </ul>
+
+  <h2>백업 방법</h2>
+
+  <p>전체 백업, 차등 백업, 트랜잭션 로그 백업 순서로 백업을 진행함</p>
+
+  <ul>
+    <li>
+      테이블 생성<br />
+      <pre><code>create table test (id int identity(1,1), name varchar(10));</code></pre>
+    </li>
+    <li>
+      데이터베이스 > 태스크 > 백업<br />
+      <img src="./img/39_backup.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      백업 유형 "전체", 백업할 위치는 "C:\Temp\test_full.bak" 입력<br />
+      <img src="./img/40_backup.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      데이터 입력 (여러번 반복)<br />
+      <pre><code>insert into test (name) values ('test');</code></pre>
+    </li>
+    <li>
+      차등 백업을 함. 백업할 위치는 "C:\Temp\test_diff.bak" 입력<br />
+      <img src="./img/41_backup.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      데이터 삭제<br />
+      <pre><code>delete from test where id > 5;</code></pre>
+    </li>
+    <li>
+      트랜잭션 로그 백업을 함. 백업할 위치는 "C:\Temp\test_trans.bak" 입력<br />
+      <img src="./img/42_backup.png" alt="" class="img-large m-l-xs" />
+    </li>
+  </ul>
+
+  <p>다음 페이지에서 복원에 대해서 알아보고 복원을 진행해 보자.</p>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        백업 구성 요소에 파일 및 파일 그룹으로도 백업을 진행해 보자.
+      </li>
+      <li>
+        백업 옵션 > 백업 압축 설정을 사용해 보자.
+      </li>
+      <li>
+        위 INSERT 쿼리에서 반복 수행할 수 있는 쿼리를 만들어 보자.
+      </li>
+    </ol>
+  </div>
 
   <br /><br />
   <hr />
   <a href="../index.html">처음으로</a>&nbsp;&nbsp;
-  <a href="./configure.html">이전</a>
+  <a href="./db_file.html">이전</a>
   <a href="./restore.html" class="pull-right">다음</a>
   <footer>
     powered by insung / last modified date: 2018-10

@@ -15,21 +15,25 @@ footer {
 .img-xlarge {
   width: 1000px;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .img-large {
   width: 700px;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .img-medium {
   width: 500px;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .img-small {
   width: 300px;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .m-l-md {
@@ -61,5 +65,5 @@ footer {
 }
 
 .checkpoint {
-  color: darkslategrey;
+  color: brown;
 }
