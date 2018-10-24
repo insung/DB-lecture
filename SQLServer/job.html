@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>운영업무 자동화</h3>
+
+  <h1>작업</h1>
+  <ul>
+    <li>
+      작업에 대해 알아보자.
+    </li>
+  </ul>
+
+  <h2>운영자 구성</h2>
+  <ol>
+    <li>
+      SQL Server 에이전트 > 운영자 > 새 운영자 <br />
+      <img src="./img/85_job.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      이름 및 메일 입력 후 확인 <br />
+      <img src="./img/86_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+  </ol>
+
+  <h2>작업 설정 방법</h2>
+  <p>SQL Server 에서 제공하는 작업 기능으로 test 데이터베이스를 주기적으로 백업 해보자.</p>
+  <ol>
+    <li>
+      SQL Server 에이전트 > 작업 > 새 작업 <br />
+      <img src="./img/63_job.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      일반 > 이름 입력 등<br />
+      <img src="./img/64_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      단계 > 새로 만들기<br />
+      <img src="./img/65_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      새 작업 단계 > 데이터베이스 선택 후, 명령 입력 > 확인<br />
+      <img src="./img/66_job.png" alt="" class="img-large m-l-xs" /><br />
+      <p>test db Full 백업 스크립트</p>
+      <pre><code>BACKUP DATABASE [test] TO  DISK = N'c:\temp\test_full.bak' WITH NOFORMAT, NOINIT</code></pre>
+    </li>
+    <li>
+      일정 > 새로 만들기<br />
+      <img src="./img/67_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      새 작업 일정 > 이름 등 입력<br />
+      <img src="./img/68_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      알림 > 전자 메일 선택 > 테스트를 위해 작업 성공 시 메일 보내도록 설정 후 확인<br />
+      <img src="./img/82_job.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      생성한 작업을 테스트하기 위해 SQL Server 에이전트 시작 > 해당 작업 선택 > 작업 시작 단계 클릭<br />
+      <img src="./img/83_job.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      완료 및 메일 확인<br />
+      <img src="./img/87_job.png" alt="" class="img-medium m-l-xs" />
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        작업 일정을 각자 설정해 보자.
+      </li>
+    </ol>
+  </div>
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./mail.html">이전</a>
+  <a href="./deattach.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
