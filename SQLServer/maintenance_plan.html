@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>운영업무 자동화</h3>
+
+  <h1>유지 관리 계획 마법사</h1>
+  <ul>
+    <li>
+      유지 관리 계획 마법사에서 어떤 작업을 할 수 있는지 알아보자.
+    </li>
+    <li>
+      유지 관리 계획 마법사로 간단하게 전체 백업을 구성하는 방법에 대해 알아보자.
+    </li>
+  </ul>
+
+  <h2>유지 관리 계획 마법사 구성 방법</h2>
+  <ol>
+    <li>
+      관리 > 유지 관리 계획 > 유지 관리 계획 마법사 <br />
+      <img src="./img/92_maintenance.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      전체 백업은 매월 15일 오전 4시에 수행되도록 설정 후 확인<br />
+      <img src="./img/93_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      SQL Server 에이전트 > 작업 > 새 작업 <br />
+      <img src="./img/94_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      데이터베이스 백업(전체) 선택 후 다음<br />
+      <img src="./img/95_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      일반 > 데이터베이스 > test 데이터베이스 선택<br />
+      <img src="./img/96_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      대상 > "c:\temp" 으로 변경 후 확인<br />
+      <img src="./img/97_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      보고서 옵션에서 전자 메일 선택 후 다음<br />
+      <img src="./img/98_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      마침<br />
+      <img src="./img/99_maintenance.png" alt="" class="img-large m-l-xs" />
+    </li>
+    <li>
+      생성된 유지 관리 계획 선택 > 실행<br />
+      <img src="./img/100_maintenance.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      실행 완료<br />
+      <img src="./img/101_maintenance.png" alt="" class="img-medium m-l-xs" />
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        유지 관리 계획 마법사에는 여러 가지 기능이 있다. 각자 하나씩 유지 관리 계획을 만들어 보자.
+      </li>
+    </ol>
+  </div>
+
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./job.html">이전</a>
+  <a href="./deattach.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
