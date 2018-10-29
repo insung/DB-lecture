@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>PostgreSQL 데이터베이스 구조</h3>
+
+  <h1>계정</h1>
+    
+  <ul>
+    <li>
+      postgres 에서 Login Role(계정) 이라는 개념으로 사용자를 관리함
+    </li>
+    <li>
+      Login Role 에는 유효기간(account expires), Connection limit 등을 지정할 수 있음
+    </li>
+    <li>
+      Login Role 에 권한을 부여할 수 있다. Superuser 권한은 create database, create roles 등 postgres 의 모든 권한을 가질 수 있음
+    </li>
+  </ul>
+
+  <h2>계정 생성 방법</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database > Login Roles > New Login Role... 선택<br />
+      <img src="./chapter2/role_1.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      Properties 탭 > Role name 입력<br />
+      <img src="./chapter2/role_2.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      Definition 탭 > Password 입력<br />
+      <img src="./chapter2/role_3.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      Role privileges 탭 > Superuser 선택 후 OK 클릭<br />
+      <img src="./chapter2/role_4.png" alt="" class="img-medium m-l-xs" />
+    </li>
+  </ol>
+
+  <h2>계정 삭제 방법</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database > Login Roles > Delete/Drop... 선택<br />
+      <img src="./chapter2/role_5.png" alt="" class="img-small m-l-xs" /><br />
+      (만약 Database 를 사용하고있는 사용자면 삭제되지 않음)
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        각자 account expires, role privileges 값 등을 설정해보자.
+      </li>
+    </ol>
+  </div>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./3_pghba_config.html">이전</a>
+  <a href="./5_db_table.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

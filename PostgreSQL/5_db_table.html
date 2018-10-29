@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>PostgreSQL 데이터베이스 구조</h3>
+
+  <h1>데이터베이스 및 테이블</h1>
+    
+  <ul>
+    <li>
+      postgres 의 데이터베이스 및 테이블에 대해 알아보자.
+    </li>
+  </ul>
+
+  <h2>데이터베이스 생성 방법</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database > New Database... 선택<br />
+      <img src="./chapter2/db_1.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      Properties 탭 > Name 입력, Owner 선택<br />
+      <img src="./chapter2/db_2.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      Definition 탭 > 기본값<br />
+      <img src="./chapter2/db_3.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      SQL 탭은 최종적으로 쿼리를 확인할 수 있음<br />
+      <img src="./chapter2/db_4.png" alt="" class="img-medium m-l-xs" />
+    </li>
+  </ol>
+
+  <h2>테이블 생성 및 삭제 예제</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database 선택 > Databases > test 선택 후 SQL 쿼리 버튼 클릭<br />
+      <img src="./chapter2/db_6.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      테이블 생성을 위해 다음 쿼리 입력<br />
+      <pre><code>CREATE TABLE test (
+  id int,
+  name varchar(50),
+  description varchar(255)
+);</code></pre>
+    </li>
+    <li>
+      테이블 삭제를 위해 다음 쿼리 입력<br />
+      <pre><code>DROP TABLE test;</code></pre>
+    </li>
+  </ol>
+
+  <h2>데이터베이스 삭제 방법</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database > Delete/Drop... 선택<br />
+      <img src="./chapter2/db_5.png" alt="" class="img-small m-l-xs" />
+    </li>
+  </ol>
+
+  <h2>PostgreSQL Data Types</h2>
+
+  <img src="./chapter2/db_7.png" alt="" class="img-large m-l-xs" />
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        <a href="http://www.postgresqltutorial.com/" target="_blank">PostgreSQL Tutorial</a>
+        <span> > </span>        
+        <a href="http://www.postgresqltutorial.com/postgresql-create-table/" target="_blank">create table</a>
+        <span>편 참고하여 좀 더 연습해보자.</span>
+      </li>      
+    </ol>
+  </div>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./4_role.html">이전</a>
+  <a href="./6_tablespace.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
