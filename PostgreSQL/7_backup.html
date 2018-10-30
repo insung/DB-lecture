@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>PostgreSQL 데이터베이스 관리</h3>
+
+  <h1>백업</h1>
+    
+  <ul>
+    <li>
+      postgres 에서 백업하는 방법에 대해 알아보자.
+    </li>
+    <li>
+      pg_dump, pgadmin3 backup, file system level backup 에 대해 알아보자.
+    </li>
+  </ul>
+
+  <h2>pg_dump 사용법</h2>
+
+  <ol>
+    <li>
+      pg_dump 경로로 이동
+      <br />
+      <pre><code># 윈도우인 경우
+$ cd C:\Program Files\PostgreSQL\9.5\bin
+$ pg_dump.exe -V
+
+# 리눅스인 경우
+$ cd /usr/lib/postgresql/9.4/bin
+$ pg_dump -V
+
+# 또는 그냥 pg_dump 입력해도 사용가능함
+$ pg_dump -V</code></pre>
+    </li>
+    <li>
+      pg_dump 기본 명령어<br />
+      <pre><code>$ pg_dump databasename > outfile</code></pre>
+    </li>
+    <li>
+      test 란 Database 를 백업하고, 백업될 포멧은 tar 이며, out 경로를 C:\temp\backup.tar 인 경우<br />
+      <pre><code>$ pg_dump -F t test > C:\temp\backup.tar</code></pre>
+    </li>
+    <li>
+      다른 시스템의 shadowcube5 Database 를 백업할 때 (<strong>host (-h) 가 10.10.0.92, port (-p) 가 5432, 사용자가 (-U) shadowcube 인 경우</strong>)<br />
+      <pre><code>$ pg_dump -h 10.10.0.92 -p 5432 -U shadowcube -F t shadowcube5 > C:\temp\backup.tar</code></pre>
+    </li>
+    <li>
+      shadowcube5 Database 에서 test_1, test_2 테이블들만 백업할 경우<br />
+      <pre><code>$ pg_dump -F t -t test_1 -t test_2 test > C:\temp\backup.tar</code></pre>
+    </li>
+    <li>
+      shadowcube5 Database 에서 test_3 테이블들을 제외하여 백업할 경우<br />
+      <pre><code>$ pg_dump -F t -T test_3 test > C:\temp\backup.tar</code></pre>
+    </li>
+  </ol>
+
+  <h2>포멧 옵션</h2>
+
+  <p>
+    <strong>-F <i>format</i> 또는 --format=<i>format</i></strong>
+  </p>
+  <ul>
+    <li>
+      p 또는 plain<br />
+      plain-text SQL script 포멧<br /><br />
+    </li>
+    <li>
+      c 또는 custom<br />
+      custom 포멧. 기본적으로 압축 사용<br /><br />
+    </li>
+    <li>
+      d 또는 directory<br />
+      디렉토리 포멧<br /><br />
+    </li>
+    <li>
+      t 또는 tar<br />
+      tar 포멧<br /><br />
+    </li>
+  </ul>
+
+  <p>
+    참고: <a href="https://www.postgresql.org/docs/9.5/static/app-pgdump.html" target="_blank">pg_dump manual</a>
+  </p>
+
+  <h2>pgAdmin3 툴에서 백업</h2>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database 속성 > Backup<br />
+      <img src="./chapter2/backup_1.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      File Options > Filename 입력, Format 은 Directory 선택<br />
+      <img src="./chapter2/backup_2.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      Objects > 필요한 테이블만 선택 후 Backup 버튼 클릭<br />
+      <img src="./chapter2/backup_3.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      백업 완료<br />
+      <img src="./chapter2/backup_4.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      C:\temp 디렉토리 확인<br />
+      <img src="./chapter2/backup_5.png" alt="" class="img-xlarge m-l-xs" />
+    </li>
+  </ol>
+
+  <h2>File System Level Backup</h2>
+
+  <p>
+    File System Level Backup 이란 데이터베이스의 데이터를 저장하는데 사용하는 파일을 직접 복사하여 백업하는 방법이다.
+  </p>
+
+  <ol>
+    <li>
+      pgAdmin3 > Database 속성 > Backup<br />
+      <img src="./chapter2/backup_1.png" alt="" class="img-small m-l-xs" />
+    </li>
+    <li>
+      File Options > Filename 입력, Format 은 Directory 선택<br />
+      <img src="./chapter2/backup_2.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      Objects > 필요한 테이블만 선택 후 Backup 버튼 클릭<br />
+      <img src="./chapter2/backup_3.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      백업 완료<br />
+      <img src="./chapter2/backup_4.png" alt="" class="img-medium m-l-xs" />
+    </li>
+    <li>
+      C:\temp 디렉토리 확인<br />
+      <img src="./chapter2/backup_5.png" alt="" class="img-xlarge m-l-xs" />
+    </li>
+  </ol>
+
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        pg_dump 와 pg_dumpall 의 차이점에 대해 알아보자.
+      </li>
+      <li>
+        윈도우에서 백업한 파일을 리눅스에서 복원해 보자.
+      </li>
+    </ol>
+  </div>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./6_tablespace.html">이전</a>
+  <a href="./8_restore.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

@@ -50,7 +50,18 @@
     </li>
     <li>
       Definition 탭 > Tablespace 를 test 로 지정한 후 OK 클릭<br />
-      <img src="./chapter2/tablespace_4.png" alt="" class="img-medium m-l-xs" />
+      <img src="./chapter2/tablespace_4.png" alt="" class="img-medium m-l-xs" /><br />
+      <ul>
+        <li>
+          여기서 Tablespace 지정은 해당 Database 의 기본 Tablespace 를 지정하는 것임
+        </li>
+        <li>
+          해당 Database 에서 테이블 생성 시, Tablespace 를 지정하지 않으면 여기서 지정한 Tablespace 로 생성이 됨
+        </li>
+        <li>
+          해당 Database 에서 테이블 생성 시, 다른 Tablespace 를 지정할 수 도 있음
+        </li>
+      </ul>      
     </li>
   </ol>
 
@@ -73,6 +84,19 @@
     </li>
   </ul>
 
+  <h2>Table 생성 시, Tablespace 지정하는 방법</h2>
+
+  <ol>
+    <li>
+      다음과 같이 쿼리를 작성한다.<br />
+      <pre><code>CREATE TABLE test (
+  id integer,
+  name varchar(50),
+  description varchar(255)
+) <span class="checkpoint">TABLESPACE test</span></code></pre>
+    </li>
+  </ol>
+
   <h2>Tablespace 삭제 방법</h2>
 
   <p>Tablespace 에 연결된 Database 가 있다면 삭제되지 않는다. test Database 를 먼저 삭제하고 Tablespace 를 삭제한다.</p>
@@ -94,6 +118,9 @@
       <li>
         여러 개의 Tablespace 와 한 개의 Database 를 만들어보고, 그 Tablespace 들을 사용는 테이블을 만들어 보자.
       </li>
+      <li>
+        Tablespace 에 Database, Table 을 만들었을 때, 디렉토리는 어떻게 구성되는지 확인해 보자. 그리고 그 디렉토리 안에 어떤 파일들이 있는지 확인해 보자.
+      </li>
     </ol>
   </div>
   
@@ -101,7 +128,7 @@
   <hr />
   <a href="../index.html">처음으로</a>&nbsp;&nbsp;
   <a href="./5_db_table.html">이전</a>
-  <a href="./5_db_table.html" class="pull-right">다음</a>
+  <a href="./7_backup.html" class="pull-right">다음</a>
   <footer>
     powered by insung / last modified date: 2018-10
   </footer>

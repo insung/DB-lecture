@@ -47,7 +47,7 @@
   <ul>
     <li>
       테이블 생성<br />
-      <pre><code>create table test (id int identity(1,1), name varchar(10));</code></pre>
+      <pre><code>CREATE TABLE test (id INT identity(1,1), name varchar(10));</code></pre>
     </li>
     <li>
       데이터베이스 > 태스크 > 백업<br />
@@ -59,7 +59,7 @@
     </li>
     <li>
       데이터 입력 (여러번 반복)<br />
-      <pre><code>insert into test (name) values ('test');</code></pre>
+      <pre><code>INSERT INTO test (name) VALUES ('test');</code></pre>
     </li>
     <li>
       차등 백업을 함. 백업할 위치는 "C:\Temp\test_diff.bak" 입력<br />
@@ -67,7 +67,7 @@
     </li>
     <li>
       데이터 삭제<br />
-      <pre><code>delete from test where id > 5;</code></pre>
+      <pre><code>DELETE FROM test WHERE id > 5;</code></pre>
     </li>
     <li>
       트랜잭션 로그 백업을 함. 백업할 위치는 "C:\Temp\test_trans.bak" 입력<br />
