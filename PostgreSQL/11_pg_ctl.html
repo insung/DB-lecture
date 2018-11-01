@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>PostgreSQL 데이터베이스 관리</h3>
+
+  <h1>pg_ctl</h1>
+    
+  <ul>
+    <li>
+      pg_ctl 은 PostgreSQL 데이터베이스를 초기화하거나 start, stop, restart 하는 프로그램이다.
+    </li>
+    <li>
+      pg_ctl 은 이미 운영중인 시스템에서 새로운 데이터베이스를 추가할 때 사용할 수 있다.
+    </li>
+  </ul>
+
+  <h2>pg_ctl 명령어</h2>
+
+  <ol>
+    <li>
+      db 초기화 명령어<br />
+      <pre><code>pg_ctl initdb -D C:\temp\data2</code></pre>
+    </li>
+    <li>
+      postgresql.conf 파일에서 port 변경<br /><br />
+    </li>
+    <li>
+      postgres start<br />
+      <pre><code>pg_ctl start -w -D C:\temp\data2</code></pre>
+    </li>
+    <li>
+      postgres stop<br />
+      <pre><code>pg_ctl stop -D C:\temp\data2</code></pre>
+    </li>
+    <li>
+      service 등록<br />
+      <pre><code>pg_ctl register -N postgres-9.5-second -D C:\temp\data2 -w</code></pre>
+    </li>
+    <li>
+      service 시작<br />
+      시작 > 실행 > services.msc > postgres-9.5-second 우측 클릭 > 시작<br /><br />
+    </li>
+    <li>
+      service 중지<br />
+      시작 > 실행 > services.msc > postgres-9.5-second 우측 클릭 > 중지<br /><br />
+    </li>
+    <li>
+      service 제거<br />
+      <pre><code>pg_ctl unregister -N postgres-9.5-second</code></pre>
+    </li>
+  </ol>
+
+  <br /><br />
+  <div class="practice">
+    <h3>Let's Prcactice</h3>
+    <ol>
+      <li>
+        기존 postgres 서비스에서 데이터베이스 추가와 pg_ctl 로 서비스 추가 시 어떤 점이 다를까?
+      </li>
+      <li>
+        리눅스에서도 해보자.
+      </li>
+    </ol>
+  </div>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./10_vacuum.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

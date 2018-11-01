@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>PostgreSQL 데이터베이스 관리</h3>
+
+  <h1>vacuum</h1>
+    
+  <ul>
+    <li>
+      vacuum 은 PostgreSQL 의 쓰레기 데이터를 정리하는 작업이다.
+    </li>
+    <li>
+      데이터 Update 또는 Delete 시, 기존 데이터는 변경되었다는 표시만 하고, 새로운 디스크에 기록하는 작업을 한다.
+    </li>
+    <li>
+      이 때, 기존 데이터가 남아 있기 때문에 이러한 쓰레기 데이터들을 정리해주는 역할을 vacuum 이 하는 것이다.
+    </li>
+  </ul>
+
+  <h2>vacuum 명령어</h2>
+
+  <ol>
+    <li>
+      DB 전체 vacuum 실행 (해당 DB 는 Lock 되기 때문에 운영중인 DB 에서 사용하지 말 것)<br />
+      <pre><code>vacuum full</code></pre>
+    </li>
+    <li>
+      DB 전체 vacuum analyze 실행 (verbose 는 메시지 출력)<br />
+      <pre><code>vacuum analyze verbose</code></pre>
+    </li>
+    <li>
+      특정 테이블만 vacuum analyze 실행<br />
+      <pre><code>vacuum analyze verbose {tablename}</code></pre>
+    </li>
+    <li>
+      특정 테이블만 vacuum full 실행<br />
+      <pre><code>vacuum full verbose {tablename}</code></pre>
+    </li>    
+  </ol>
+
+  <h2>vacuum 수행 시 주의사항</h2>
+
+  <ul>
+    <li>
+      vacuum analyze 는 물리적 공간을 shirnk 하지 않는다.
+    </li>
+    <li>
+      DB 전체 vacuum full 실행 시, 해당 DB 는 Lock 처리되기 때문에 운영중인 DB 는 충분히 검토 후 수행하자.
+    </li>
+    <li>
+      vacuum full 은 물리적 공간을 사용하기 때문에, 디스크 Full 이거나 디스크 공간이 얼마 없을 때는 실행하면 안된다.
+    </li>
+    <li>
+      vacuum full 실행 시, DB 용량이 크면 처리되는 시간이 오래 걸린다.
+    </li>    
+    <li>
+      PostgreSQL 에서는 정기적으로 vacuum 처리하는 auto vacuum 기능을 제공하고 있다. (9.0 미만 버전은 기본 값이 disable )
+    </li>
+    <li>
+      Shadowcube 데이터베이스를 vacuum full 하면 물리적 공간이 줄어들긴 하지만 그 효과는 크지 않을 것이다.
+    </li>
+  </ul>
+
+  <h2>autovacuum</h2>
+
+  <ol>
+    <li>
+      autovacuum 기능 사용 중인지 확인하는 쿼리<br />
+      <pre><code>show autovacuum</code></pre>
+    </li>
+    <li>
+      autovacuum 은 백그라운드 프로세스들에 의해 수행되며, 이때 최대로 동시에 수행되는 프로세스 개수는 아래 쿼리로 확인할 수 있음<br />
+      <pre><code>show autovacuum_max_workers</code></pre>
+    </li>
+    <li>
+      특정 테이블만 autovacuum 에서 제외하는 쿼리<br />
+      <pre><code>ALTER TABLE test SET (autovacuum_enabled=off)</code></pre>
+    </li>
+    <li>
+      언제 vacuum 이 수행되었는지 확인하는 쿼리<br />
+      <pre><code>SELECT relname,last_vacuum, last_autovacuum, last_analyze, last_autoanalyze 
+FROM pg_stat_user_tables;</code></pre>
+    </li>
+    <li>
+      autovacuum off 일때, on 으로 변경하는 경우 > postgresql.conf 수정<br />
+      <img src="./chapter2/vacuum_2.png" alt="" class="img-small" />
+    </li>
+    <li>
+      postgresql.conf 파일 autovacuum 설정 값 참고<br />
+      <img src="./chapter2/vacuum_1.png" alt="" />
+    </li>
+  </ol>
+
+  <p>vacuum 에 대해 잘 설명한 아래 사이트들을 참고하자.</p>
+  <ul>
+    <li>
+      <a href="https://www.postgresql.org/docs/9.5/static/sql-vacuum.html" target="_blank">VACUUM manual - PostgreSQL</a>
+    </li>
+    <li>
+      <a href="https://confluence.atlassian.com/kb/optimize-and-improve-postgresql-performance-with-vacuum-analyze-and-reindex-885239781.html" target="_blank">Optimize and Improve PostgreSQL Performance with VACUUM, ANALYZE, and REINDEX</a>
+    </li>
+    <li>
+      <a href="https://blog.gaerae.com/2015/09/postgresql-vacuum-fsm.html" target="_blank">PostgreSQL: 베큠(VACUUM)을 실행해야되는 이유 그리고 성능 향상</a>
+    </li>
+    <li>
+      <a href="http://hochul.net/blog/postgresql-vacuum-optimization/?ckattempt=1" target="_blank">PostgreSQL Vacuum #Optimization</a>
+    </li>
+    <li>
+      <a href="https://www.citusdata.com/blog/2016/11/04/autovacuum-not-the-enemy" target="_blank">Postgres Autovacuum is Not the Enemy</a>
+    </li>
+    <li>
+      <a href="http://www.postgresdba.com/bbs/board.php?bo_table=B12&wr_id=15" target="_blank">AUTOVACUUM - PostgresDBA</a>
+    </li>
+  </ul>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./9_tablespace_link.html">이전</a>
+  <a href="./11_pg_ctl.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

@@ -16,7 +16,7 @@
       postgres 에서 백업하는 방법에 대해 알아보자.
     </li>
     <li>
-      pg_dump, pgadmin3 backup, file system level backup 에 대해 알아보자.
+      pg_dump, pgAdmin3 tool backup, file system level backup 에 대해 알아보자.
     </li>
   </ul>
 
@@ -47,15 +47,23 @@ $ pg_dump -V</code></pre>
     </li>
     <li>
       다른 시스템의 shadowcube5 Database 를 백업할 때 (<strong>host (-h) 가 10.10.0.92, port (-p) 가 5432, 사용자가 (-U) shadowcube 인 경우</strong>)<br />
-      <pre><code>$ pg_dump -h 10.10.0.92 -p 5432 -U shadowcube -F t shadowcube5 > C:\temp\backup.tar</code></pre>
+      <pre><code>$ pg_dump -h 10.10.0.92 -p 5432 -U shadowcube -F t shadowcube5 > C:\temp\full_backup.tar</code></pre>
     </li>
     <li>
       shadowcube5 Database 에서 test_1, test_2 테이블들만 백업할 경우<br />
-      <pre><code>$ pg_dump -F t -t test_1 -t test_2 test > C:\temp\backup.tar</code></pre>
+      <pre><code>$ pg_dump -F t -t test_1 -t test_2 shadowcube5 > C:\temp\table_backup1.tar</code></pre>
     </li>
     <li>
       shadowcube5 Database 에서 test_3 테이블들을 제외하여 백업할 경우<br />
-      <pre><code>$ pg_dump -F t -T test_3 test > C:\temp\backup.tar</code></pre>
+      <pre><code>$ pg_dump -F t -T test_3 shadowcube5 > C:\temp\table_backup2.tar</code></pre>
+    </li>
+    <li>
+      5개의 worker 를 이용해서 shadowcube5 Database 를 백업할 경우<br />
+      <pre><code>$ pg_dump -Fd -j 5 -U shadowcube -d shadowcube5 -f C:\temp2</code></pre>
+    </li>
+    <li>
+      shadowcube5 Database 의 test 테이블에서 data 만을 백업할 경우<br />
+      <pre><code>$ pg_dump -F t --data-only -t test shadowcube5 > C:\temp\test_dataonly_backup.tar</code></pre>
     </li>
   </ol>
 
@@ -114,32 +122,25 @@ $ pg_dump -V</code></pre>
 
   <h2>File System Level Backup</h2>
 
-  <p>
-    File System Level Backup 이란 데이터베이스의 데이터를 저장하는데 사용하는 파일을 직접 복사하여 백업하는 방법이다.
-  </p>
+  <ul>
+    <li>
+      File System Level Backup 이란 데이터베이스의 데이터를 저장하는데 사용하는 파일(PGDATA)을 직접 복사하여 백업하는 방법이다.
+    </li>
+    <li>
+      이 백업을 사용하려면 Database 서비스를 중지해야 한다.
+    </li>
+    <li>
+      이 백업은 전체 데이터베이스의 전체 백업 및 복원에 대해서만 동작한다.
+    </li>
+    <li>
+      리눅스에서는 다음과 같이 tar 로 묶어서 백업할 수 있다. (/usr/local/pgsql/data 는 PGDATA 경로임)<br />
+      <pre><code>tar -cf backup.tar /usr/local/pgsql/data</code></pre>
+    </li>
+  </ul>
 
-  <ol>
-    <li>
-      pgAdmin3 > Database 속성 > Backup<br />
-      <img src="./chapter2/backup_1.png" alt="" class="img-small m-l-xs" />
-    </li>
-    <li>
-      File Options > Filename 입력, Format 은 Directory 선택<br />
-      <img src="./chapter2/backup_2.png" alt="" class="img-medium m-l-xs" />
-    </li>
-    <li>
-      Objects > 필요한 테이블만 선택 후 Backup 버튼 클릭<br />
-      <img src="./chapter2/backup_3.png" alt="" class="img-medium m-l-xs" />
-    </li>
-    <li>
-      백업 완료<br />
-      <img src="./chapter2/backup_4.png" alt="" class="img-medium m-l-xs" />
-    </li>
-    <li>
-      C:\temp 디렉토리 확인<br />
-      <img src="./chapter2/backup_5.png" alt="" class="img-xlarge m-l-xs" />
-    </li>
-  </ol>
+  <p>
+    참고: <a href="https://www.postgresql.org/docs/9.5/static/backup-file.html" target="_blank">File System Level Backup Manual</a>
+  </p>
 
   <div class="practice">
     <h3>Let's Prcactice</h3>
@@ -149,6 +150,9 @@ $ pg_dump -V</code></pre>
       </li>
       <li>
         윈도우에서 백업한 파일을 리눅스에서 복원해 보자.
+      </li>
+      <li>
+        pgAdmin3 백업 옵션에는 어떤 것들이 있는지 확인해 보자.
       </li>
     </ol>
   </div>
