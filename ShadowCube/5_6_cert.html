@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+
+  <h1>인증서발급 정책 (cert_policies, agreement_files)</h1>
+
+  <h2>인증서 발급정책</h2>
+  <ul>
+    <li>
+      ShadowCube 클라이언트에서 인증서 발급, 인증서 가져오기 시 최초로 표시되는 발급 정책이다.
+    </li>
+    <li>
+      인증서 발급 정책이 두 개 이상인 경우, ShadowCube 클라이언트에서 선택할 수 있다.
+    </li>
+    <li>
+      인증필드는 userno, login, username, deptname, email, cellphone, phone 이 있으며, 4 개 이하로 구성해야 한다.
+    </li>
+    <li>
+      인증필드에 userno 만 있다면, ShadowCube 클라이언트에서 인증서 발급 시, 사번만 입력하면 된다.
+    </li>
+  </ul>  
+
+  <img src="./chapter2/policy/cert_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+  <img src="./chapter2/policy/cert_2.png" alt="" /><br />
+
+  <h2>약관문서</h2>
+  <ul>
+    <li>
+      ShadowCube 클라이언트에서 인증서 발급 시, 고객사 자체 약관문서를 출력하기 위한 정책이다.
+    </li>
+  </ul>
+
+  <h3>※ 테이블 설명</h3>
+  <img src="./chapter2/policy/cert_3.png" alt="" /><br />
+
+  <br /><br />
+  <hr />
+  <a href="./5_sc_table_policy.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

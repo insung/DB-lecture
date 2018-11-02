@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+
+  <h1>관리자 관리 (admins, admins_members)</h1>
+
+  <p>관리자 관리 페이지에서 관리자 추가 및 관리대상 부서를 지정할 수 있다.</p>
+  <img src="./chapter2/objects/admin_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+
+  <img src="./chapter2/objects/admin_2.png" alt="" />
+
+  <h3>column 설명</h3>
+  <ul>
+    <li>
+      absent: true 인 경우 부재라는 의미이며, 복호화 요청 결재자에서 제외된다.
+    </li>
+    <li>
+      password: HMAC SHA-256 해쉬 함수를 사용해서 비밀번호를 생성함
+    </li>    
+  </ul>
+
+  <img src="./chapter2/objects/admin_3.png" alt="" />
+
+  <h3>위 그림에서 admins_members 테이블의 의미</h3>
+  <ul>
+    <li>
+      admins 테이블의 id 값이 198 인 관리자는 부서 id 가 5인 부서를 관리한다는 의미      
+    </li>
+    <li>
+      만약 admin_id = 2, attach_e = 0, attach_id = 3 이라면, admins 테이블의 id 가 2 인 관리자는 부서 id 3 을 관리한다는 의미
+    </li>
+  </ul>
+
+  <br /><br />
+  <hr />
+  <a href="./4_sc_table_objects.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

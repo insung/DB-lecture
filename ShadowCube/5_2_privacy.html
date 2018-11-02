@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+
+  <h1>개인정보 보호 정책 (groups, privacy_rules)</h1>
+
+  <p>
+    개인정보 보호 정책은 groups 테이블에 id 가 2147483647 이다.
+  </p>
+
+  <pre><code>SELECT * 
+FROM groups
+where id = 2147483647</code></pre>
+
+  출력 결과<br />
+  <img src="./chapter2/policy/privacy_1.png" alt="" />
+
+  <p>
+    개인정보 보호 정책의 정책 값은 privacy_rules 에 저장된다.
+  </p>
+
+  <img src="./chapter2/policy/privacy_2.png" alt="" />
+
+  <h3>privacy_rules 의 id 값과 reg_exp 의미</h3>
+  <ul>
+    <li>
+      id 값이 1~8 까지는 정책센터 관리자가 지정한 정책에 의해 개인정보를 검출함 (예: 주민등록번호)
+    </li>
+    <li>
+      id 값이 9~11 까지는 정책센터 관리자가 생성한 정규식에 의해 검출됨 (예: 문서에 dd 라는 문자열이 있으면 검출됨)
+    </li>
+    <li>
+      id 값이 12 이면, ShadowCube 클라이언트 사용자가 생성한 규칙에 의해 검출되는 조건
+    </li>
+  </ul>
+
+  <br /><br />
+  <hr />
+  <a href="./5_sc_table_policy.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

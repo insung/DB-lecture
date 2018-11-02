@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+
+  <h1>부서 관리 (departments)</h1>
+
+  <img src="./chapter2/objects/dept_1.png" alt="" />
+
+  <h3>※ 테이블 설명</h3>
+
+  <img src="./chapter2/objects/dept_2.png" alt="" />
+
+  <h3>column 설명</h3>
+  <ul>
+    <li>
+      sequence: 만약 동일한 이름의 부서가 동일한 상위 부서를 가지고 있을 시, sequence 값에 따라 sorting 되는 값
+    </li>
+    <li>
+      modifier_type_e: 동기화 여부를 나타내며, 그 값이 1인 경우 그룹웨어에서 변경되면 departments 의 값도 변경됨
+    </li>
+  </ul>
+
+  <h3>
+    column 맨 끝에 _e 가 붙어있다면 enums 테이블의 값을 확인해 보자.
+  </h3>
+  <ul>
+    <li>
+      _e 는 다른 테이블에서도 동일하게 나타나며, 모두 enums 테이블을 참고한다.
+    </li>    
+  </ul>
+
+  <pre><code>SELECT * 
+FROM enums
+INNER JOIN enums_locales ON enums.id = enums_locales.enum_id
+where type = 'modifier_type'</code></pre>
+
+  <img src="./chapter2/objects/dept_3.png" alt="" />
+
+  <br /><br />
+  <hr />
+  <a href="./4_sc_table_objects.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
