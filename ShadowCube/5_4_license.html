@@ -8,10 +8,56 @@
 </head>
 <body>
 
+  <h1>라이선스 정책 (license_fields, license_fields_locales, license_values)</h1>
+
+  <img src="./chapter2/policy/license_1.png" alt="" /><br />
+
+  <h3>※ license_fields, license_fields_locales 테이블 설명</h3>
+
+  <img src="./chapter2/policy/license_3.png" alt="" />
+
+  <ul>
+    <li>
+      type_e column 의 정보는 enums 테이블에서 다음 쿼리로 확인할 수 있다.<br />
+      <pre><code>SELECT *
+FROM enums
+WHERE type = 'type'</code></pre>
+      
+         <img src="./chapter2/policy/license_4.png" alt="" />
+    </li>
+  </ul>
+
+  <img src="./chapter2/policy/license_4.png" alt="" />
+
+  <ul>
+    <li>
+      license_fields_locales 테이블은 license_fields 의 한국어 지원을 위해 존재하는 테이블이다.
+    </li>
+    <li>
+      다음 쿼리로 1:1 매핑됨을 알 수 있다.<br />
+      <pre><code>SELECT fields.id, 
+       fields.name, 
+       fields.description, 
+       fields.section, 
+       locales.description_translation, 
+       section_translation
+FROM license_fields AS fields
+INNER JOIN license_fields_locales AS locales
+      ON fields.id = locales.license_field_id</code></pre>
+   
+      <img src="./chapter2/policy/license_2.png" alt="" />
+    </li>
+  </ul>
+
+  
+
+  <h3>※ license_fields, license_values 테이블 설명</h3>
+
+  <img src="./chapter2/policy/license_7.png" alt="" />
 
   <br /><br />
   <hr />
-  <a href="./4_sc_table_objects.html">이전</a>
+  <a href="./5_sc_table_policy.html">이전</a>
   <footer>
     powered by insung / last modified date: 2018-10
   </footer>
