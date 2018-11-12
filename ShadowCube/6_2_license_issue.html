@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+
+  <h1>라이선스 발급현황 (licenses_users, licenses_users_addtional_infos)</h1>
+
+  <ul>
+    <li>
+      라이선스 발급현황 페이지는 ShadowCube 사용자가 발급한 라이선스 목록을 볼 수 있다.
+    </li>
+  </ul>  
+
+  <img src="./chapter2/issue/license_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+
+  <ul>
+    <li>
+      ShadowCube 사용자가 인증서 발급하고 로그인 시, 라이선스가 발급된다.
+    </li>
+    <li>
+      해당 PC 에 대한 정보 및 라이선스에 대한 설정은 licenses_users 테이블에 저장되거나 update 되고, 디테일한 라이선스 정책은 license_unseal 컬럼에 저장된다.
+    </li>
+    <li>
+      license_unseal 에서 워터마크, 복사/붙여넣기, 스크린캡쳐, 문서그룹 복호화 권한 정보를 가져와 licenses_users_addtional_infos 테이블에 저장한다.
+    </li>
+  </ul>
+
+  <img src="./chapter2/issue/license_2.png" alt="" /><br />
+  <img src="./chapter2/issue/license_3.png" alt="" /><br />
+
+  <br /><br />
+  <hr />
+  <a href="./6_sc_table_cert.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
