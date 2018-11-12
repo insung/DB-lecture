@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/github.css" />
+</head>
+<body>
+
+  <h1>사용자 감사 (audit_logs_{yyyyMM})</h1>
+
+  <ul>
+    <li>
+      사용자 감사 페이지는 사용자들이 어떤 작업을 했는지 등을 볼 수 있다.
+    </li>
+  </ul>  
+
+  <img src="./img/log/audit_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+
+  <ul>
+    <li>
+      사용자 감사 테이블은 월별로 생성된다. (audit_logs_{yyyyMM})
+    </li>
+  </ul>
+
+  <img src="./img/log/audit_2.png" alt="" /><br />
+
+  <h3>※ 컬럼 설명</h3>
+
+  <ul>
+    <li>
+      user_ip: ShadowCube 클라이언트에서 조회된 IP 주소
+    </li>
+    <li>
+      remote_ip: 정책센터에서 ShadowCube 클라이언트를 바라본 IP 주소
+    </li>
+    <li>
+      process: scmain, scencbatch 등과 같은 작업한 프로세스명
+    </li>
+    <li>
+      sign: 로그 row 를 hash 한 값
+    </li>
+  </ul>
+
+  <br /><br />
+  <hr />
+  <a href="../7_sc_table_log.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
