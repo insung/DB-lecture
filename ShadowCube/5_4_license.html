@@ -12,7 +12,7 @@
 
   <img src="./chapter2/policy/license_1.png" alt="" /><br />
 
-  <h3>※ license_fields, license_fields_locales 테이블 설명</h3>
+  <h3>※ 테이블 설명</h3>
 
   <img src="./chapter2/policy/license_3.png" alt="" />
 
@@ -23,7 +23,7 @@
 FROM enums
 WHERE type = 'type'</code></pre>
       
-         <img src="./chapter2/policy/license_4.png" alt="" />
+         <img src="./chapter2/policy/license_5.png" alt="" />
     </li>
   </ul>
 
@@ -51,7 +51,16 @@ INNER JOIN license_fields_locales AS locales
 
   
 
-  <h3>※ license_fields, license_values 테이블 설명</h3>
+  <h3>※ license_values 테이블 설명</h3>
+
+  <ul>
+    <li>
+      license_values 테이블은 라이선스 정책의 전체/부서/사용자의 라이선스 정책 값이 저장되는 테이블이다.
+    </li>
+    <li>
+      scope_e 가 0이면 전체, 1이면 부서, 2이면 사용자이다. scope_id 는 부서 또는 사용자의 id 이다. (참고로 scope_e 가 0 이면 scope_id 도 0 이다.)
+    </li>
+  </ul>
 
   <img src="./chapter2/policy/license_7.png" alt="" />
 
