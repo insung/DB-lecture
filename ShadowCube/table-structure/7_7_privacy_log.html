@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/github.css" />
+</head>
+<body>
+
+  <h1>개인정보 검사이력 (privacy_log_summary, privacy_logs)</h1>
+
+  <ul>
+    <li>
+      개인정보 검사이력 페이지는 ShadowCube 사용자 PC에서 일괄암호화(scencbatch.exe)가 종료된 후 개인정보가 포함된 문서가 있는 경우 기록되는 로그이다.
+    </li>
+    <li>
+      privacy_log_summary 는 데이터를 유지하지만, privacy_logs 테이블의 데이터는 개인정보 로그 관리 스케쥴에 의해 삭제된다. 
+    </li>
+    <li>
+      정책센터 > 환경설정 > 예약된 작업 > 스케쥴 설정 > 개인정보 로그 관리 탭에서 유지할 로그 갯수를 설정하면 거기에 맞게 privacy_logs 테이블을 transaction_id 별로 삭제한다.
+    </li>
+  </ul>  
+
+  <img src="./img/log/privacy_log_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+
+  <img src="./img/log/privacy_log_2.png" alt="" /><br />
+  <img src="./img/log/privacy_log_3.png" alt="" /><br />
+
+  <br /><br />
+  <hr />
+  <a href="../7_sc_table_log.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>

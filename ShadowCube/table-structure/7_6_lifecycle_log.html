@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../../css/github.css" />
+</head>
+<body>
+
+  <h1>LifeCycle 로그 (securepdfs, lifecycle_logs_{yyyyMM})</h1>
+
+  <ul>
+    <li>
+      LifeCycle 로그 페이지는 ShadowCube 사용자가 LifeCycle (.sclc) 문서변환 했을 경우 로그 조회할 수 있는 페이지이다.
+    </li>
+    <li>
+      변환된 LifeCycle 문서는 별도의 조회할 수 있는 서버(lifecycle.shadowcube.co.kr)가 있으며, 이 서버에서 조회된 로그를 정책센터에서 받아서 lifecycle_logs_{yyyyMM} 테이블에 기록한다.
+    </li>
+    <li>
+      lifecycle_logs_{yyyyMM} 테이블은 실시간으로 Update 되는 것이 아니고, 스케쥴에 의해 Update 되며, 정책센터 > 환경설정 > 스케쥴 설정 > LifeCycle 로그 전송 주기 설정에서 그 값을 변경할 수 있다.
+    </li>
+  </ul>  
+
+  <img src="./img/log/lifecycle_log_1.png" alt="" /><br />
+
+  <h3>※ 테이블 설명</h3>
+
+  <ul>
+    <li>
+      securepdfs 테이블은 문서 변환에 대한 로그가 기록된다.
+    </li>
+    <li>
+      lifecycle_logs_{yyyyMM} 테이블은 LifeCycle 문서를 조회했을 경우 기록되는 테이블이다. 
+    </li>
+  </ul>
+
+  <img src="./img/log/lifecycle_log_2.png" alt="" /><br />
+  <img src="./img/log/lifecycle_log_3.png" alt="" /><br />
+
+  <br /><br />
+  <hr />
+  <a href="../7_sc_table_log.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-10
+  </footer>
+</body>
+</html>
