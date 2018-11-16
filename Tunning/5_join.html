@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>데이터베이스 고급</h3>
+
+  <h1>Join</h1>
+
+  <h2>INNER JOIN</h2>
+  <ul>
+    <li>
+      INNER JOIN 은 일반적인 조인 형태로 가장 많이 활용하는 Join 기법이다.
+    </li>
+    <li>
+      INNER JOIN 은 둘 이상의 테이블에 존재하는 공통된 컬럼으로 결과를 추출한다.
+    </li>
+    <li>
+      쿼리 예<br />
+      <pre><code>SELECT user.name, course.name 
+FROM user
+INNER JOIN course ON user.name = course.name</code></pre>
+    </li>
+  </ul>
+  <img src="./img/join_1.png" alt="" class="m-l-xs" />
+
+  <h2>LEFT JOIN (RIGHT JOIN)</h2>
+  <ul>
+    <li>
+      LEFT JOIN 은 왼쪽 테이블이 기준이 되고, 그 외 테이블에서 값이 없다면 NULL 로 표시된다.
+    </li>
+    <li>
+      쿼리 예<br />
+      <pre><code>SELECT user.name, course.name 
+FROM user
+LEFT JOIN course ON user.name = course.name</code></pre>
+    </li>
+  </ul>
+  <img src="./img/join_2.png" alt="" class="m-l-xs" />
+
+  <h2>OUTER JOIN</h2>
+  <ul>
+    <li>
+      OUTER JOIN 은 기준이 되는 테이블과 그 외 테이블의 값을 가져온다.
+    </li>
+    <li>
+      쿼리 예<br />
+      <pre><code>SELECT user.name, course.name 
+FROM user
+OUTER JOIN course ON user.name = course.name</code></pre>
+    </li>
+  </ul>
+  <img src="./img/join_4.png" alt="" class="m-l-xs" />
+
+  <h2>JOIN 사용 시 주의사항</h2>
+
+  <ol>
+    <li>
+      구동(Drive) 테이블의 선택에 따라 성능이 달라지기 때문에 결합할 때 어떤 테이블을 기준으로 검색하는지가 성능을 좌우한다.
+    </li>
+    <li>
+      테이블의 조인 순서가 성능을 좌우할 수 있다. 만약 인덱스가 혼합되어 있는 경우 결합 인덱스를 가진 테이블이 우선 선택해야 한다.
+    </li>
+    <li>
+      검색되는 테이블의 데이터량에 따라 성능이 달라진다.<br />
+      검색하려는 데이터가 테이블 전체 범위에서 검색한다면 성능향상은 어려울 것이다. 좁은 범위, Full scan 보다는 Index scan 으로 수행될 수 있도록 하자.
+    </li>
+    <li>
+      JOIN 시 인덱스의 사용여부에 따라 성능이 달라진다. 동일한 JOIN 문장이지만 인덱스가 없이 실행되는 조인은 성능에서 크게 차이가 날 것이다.
+    </li>
+  </ol>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./4_index.html">이전</a>
+  <footer>
+    powered by insung / last modified date: 2018-11
+  </footer>
+</body>
+</html>

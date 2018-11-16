@@ -10,64 +10,81 @@
   <h3>데이터베이스 고급</h3>
 
   <h1>튜닝의 개념</h1>
+
+  <h2>튜닝이란?</h2>  
   <ul>
     <li>
-      PostgreSQL 설치하는 방법에 대해 알아보자.
+      데이터베이스 튜닝(Database Tuning)이란 데이터베이스 어플리케이션, 데이터베이스 자체, 운영체제 등의 조정을 통하여 데이터베이스 시스템의 성능을 향상시키는 작업을 말한다.
     </li>
     <li>
-      PostgreSQL Windows 설치 (<a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" target="_blank">링크</a>)
+      데이터베이스 튜닝을 통해 데이터베이스 어플리케이션이 높은 작업 처리량과 짧은 응답시간을 갖도록 하는 것이 중요하다.
+    </li>
+    <li>
+      원하는 데이터를 얼마나 정확하고, 얼마나 효율적으로 찾는 작업이다.
     </li>
   </ul>
 
-  <h2>설치 방법</h2>  
+  <h2>튜닝의 범위</h2>
+
+  <table>
+    <thead>
+      <th>
+        어플리케이션 튜닝
+      </th>
+      <th>
+        시스템 튜닝
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          데이터베이스의 논리적 구조(테이블 구조, 테이블 크기, 인덱스 여부 및 종류 등) 튜닝<br />
+          SQL 문의 실행원리와 실행방법을 제대로 사용했는지 등 분석하고 최적화
+        </td>
+        <td>
+          데이터베이스의 메모리 영역과 물리적 구조에 대해 튜닝<br />
+          디스크, OS 등과 같은 하드웨어 튜닝
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>튜닝의 방법</h2>
   <ol>
     <li>
-      PostgreSQL 9.5 설치<br />
-      <img src="./chapter1/install_1.png" alt="" class="img-medium m-l-xs" />
+      업무 환경과 시스템 환경에 적합하게 데이터베이스 파라미터를 설정한다.
     </li>
     <li>
-      postgres 계정의 암호 입력<br />
-      <img src="./chapter1/install_2.png" alt="" class="img-medium m-l-xs" />
+      데이터베이스에 접근하는 SQL 문장의 수행시 디스크 블록에 대한 접근 횟수 가 가능한 최소가 되도록 한다.<br />
+      <ul>
+        <li>디스크를 적절하게 분산시켜 디스크 입출력이 집중되는 현상을 막으면 경합이 발생되지 않기 때문에 바람직한 성능을 보장할 수 있다.</li>
+      </ul>
     </li>
     <li>
-      포트 입력<br />
-      <img src="./chapter1/install_3.png" alt="" class="img-medium m-l-xs" />
+      디스크 블록에서 한 번 읽어온 데이터는 가능하면 메모리 영역에 보관하여 다시 그 데이터가 필요할 때 메모리로부터 빨리 가져오게 한다.<br />
+      <ul>
+        <li>이것은 디스크로부터 메모리로 로드하여 데이터를 가져오는 경우에 비해 메모리에서 데이터를 직접 읽어오는 경우가 디스크 입출력을 최소화할 수 있어서 속도가 훨씬 빠르기 때문이다.</li>
+      </ul>
     </li>
     <li>
-      Stack Builder 체크 해제 후 마침<br />
-      <img src="./chapter1/install_4.png" alt="" class="img-medium m-l-xs" />
+      모든 SQL 문장은 공유가 가능하도록 대소문자 등 명명 표준을 준수하여 작성한다.<br />
+      <ul>
+        <li>처음 실행된 SQL 문장은 구문검사, 실행권한 체크와 같은 내부 파싱 절차를 거쳐 DBMS 안에서 최적의 실행 계획을 수립한다.</li>
+        <li>그러므로, 동일한 SQL 문장에 대 해서는 가능하면 파싱 작업을 다시 수행하지 않도록 하면 성능을 향상시킬 수 있다.</li>
+      </ul>
+    </li>
+    <li>
+      배치(batch) 작업과 백업 작업 수행이 빠른 시간 안에 완료될 수 있도록 한다. <br />
+      <ul>
+        <li>일반적으로 배치 작업에 걸리는 시간이 길기 때문에 작업을 수행하는 동안 메모리나 CPU 등 하드웨어 자원을 많이 사용하게 된다.</li>
+      </ul>      
     </li>
   </ol>
-
-  <h2>접속 방법</h2>
-  <ol>
-    <li>
-      시작 > PostgreSQL 9.5 > pgAdmin3 > PostgreSQL 9.5 더블 클릭<br />
-      <img src="./chapter1/install_5.png" alt="" class="img-medium m-l-xs" />
-    </li>
-    <li>
-      비밀번호 입력<br />
-      <img src="./chapter1/install_6.png" alt="" class="img-small m-l-xs" />
-    </li>
-    <li>
-      접속 완료<br />
-      <img src="./chapter1/install_7.png" alt="" class="img-medium m-l-xs" />
-    </li>
-  </ol>
-
-  <div class="practice">
-    <h3>Let's Prcactice</h3>
-    <ol>
-      <li>
-        우분투 환경에서 설치하여 접속해 보자.
-      </li>
-    </ol>
-  </div>
   
   <br /><br />
   <hr />
   <a href="../index.html">처음으로</a>&nbsp;&nbsp;
-  <a href="./2_postgres_config.html" class="pull-right">다음</a>
+  <a href="./2_sql_process.html" class="pull-right">다음</a>
   <footer>
     powered by insung / last modified date: 2018-11
   </footer>

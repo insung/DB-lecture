@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>인성의 DB강의</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/github.css" />
+</head>
+<body>
+  <h3>데이터베이스 고급</h3>
+
+  <h1>SQL문 처리 과정</h1>
+
+  <h2>SELECT문</h2>  
+
+  <ol>
+    <li>구문분석 단계<br />
+      <ul>
+        <li>
+          먼저, 사용자가 실행한 SQL문이 데이터베이스에 처음 사용된 문장인지 이미 사용된 문장인지 공유 풀 영역을 검색하여 확인
+        </li>
+        <li>
+          이미 사용된 문장이라는 구문분석(Parsing)이라는 작업을 할 필요가 없고, 처음 사용되었다면 구문분석을 수행함
+        </li>
+        <li>
+          문법이 올바른지, 사용된 테이블 등이 있는지 확인하고 가장 빠르게 데이터를 검색할 수 있는 방법(Explain Plan)도 찾음
+        </li>
+      </ul>
+    </li>
+    <li>실행 단계<br />
+      <ul>
+        <li>
+          구문분석이 정상적으로 실행되면 서버 프로세스는 데이터 버퍼 캐시영역을 검색하여 해당 테이블이 다른 사용자의 다른 SQL문에 의해 이미 데이터 버퍼 캐시영역에 존재하는지 확인
+        </li>
+        <li>
+          만약 없다면, 테이블의 데이터 파일로부터 데이터를 읽어와 데이터 버퍼 캐시영역에 저장
+        </li>
+      </ul>
+    </li>
+    <li>인출 단계<br />
+      <ul>
+        <li>
+          실행단계가 끝나면 서버 프로세스는 사용자의 화면에 결과를 출력
+        </li>
+        <li>
+          SELECT문에만 인출단계가 있고, UPDATE, INSERT, DELETE문은 인출단계가 없음
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>DML문 (UPDATE, INSERT, DELETE)</h2>  
+
+  <ol>
+    <li>
+      DML문은 테이블로부터 데이터를 읽어와 변경한 후 커밋 또는 롤백을 통해 변경작업에 대한 종료 및 취소 과정이 있음
+    </li>
+    <li>
+      COMMIT문을 실행한다면 변경된 내용을 테이블에 저장하는 별도의 과정이 필요할 것이고 ROLLBACK문을 실행한다면 변경전의 데이터로 복구되어야 하기 때문
+    </li>
+    <li>처리 단계<br />
+      <ul>
+        <li>
+          해당 데이터 파일로부터 테이블을 읽고, 롤백을 위해 언두 세그먼트를 데이터 버퍼 캐시영역에 저장
+        </li>
+        <li>
+          변경하려는 행을 다른 사용자의 DML 문으로부터 보호할 수 있게 잠금(Lock)을 설정하고
+        </li>
+        <li>
+          로그버퍼 영역에 변경 전 정보와 변경 후 정보를 저장
+        </li>
+        <li>
+          변경 전, 변경 후 정보 모두를 기록하는 이유는 데이터베이스가 비정상 종료되었을 때, 데이터를 복구하기 위해 로그버퍼 영역에 백업하는 것임
+        </li>
+      </ul>
+    </li>
+  </ol>
+  
+  <br /><br />
+  <hr />
+  <a href="../index.html">처음으로</a>&nbsp;&nbsp;
+  <a href="./1_intro.html">이전</a>
+  <a href="./3_optimizer.html" class="pull-right">다음</a>
+  <footer>
+    powered by insung / last modified date: 2018-11
+  </footer>
+</body>
+</html>
