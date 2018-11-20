@@ -18,10 +18,17 @@
     끝으로 여러분에게 물어볼 것이 있습니다.
   </p>
 
-  <h3>앞으로 어떤 엔지니어가 되고 싶습니까?</h3>
-  <h3>당신은 고급 엔지니어가 되기 위해서 어떻게 할 것입니까?</h3>
-  <h3>3년, 5년, 7년 후 당신의 연봉은 얼마가 될 것 같습니까?</h3>
-  <h3>4000만원의 연봉을 받을려면 어떤 스킬/업무능력 등등을 보유하고 있어야 된다고 생각하십니까?</h3>
+  <a id="q_1_btn" href="#">질문 1</a><br />
+  <h3 id="q_1" hidden="true">앞으로 어떤 엔지니어가 되고 싶습니까?</h3>
+
+  <a id="q_2_btn" href="#">질문 2</a><br />
+  <h3 id="q_2" hidden="true">당신은 고급 엔지니어가 되기 위해서 어떻게 할 것입니까?</h3>
+
+  <a id="q_3_btn" href="#">질문 3</a><br />
+  <h3 id="q_3" hidden="true">3년, 5년, 7년 후 당신의 연봉은 얼마가 될 것 같습니까?</h3>
+
+  <a id="q_4_btn" href="#">질문 4</a><br />
+  <h3 id="q_4" hidden="true">4000만원의 연봉을 받을려면 어떤 스킬/업무능력 등등을 보유하고 있어야 된다고 생각하십니까?</h3>
 
   <br /><br />
   <h1>부족한 강의 들어주셔서 감사합니다.</h1>
@@ -32,5 +39,23 @@
   <footer>
     powered by insung / last modified date: 2018-11
   </footer>
+
+  <script>
+    document.getElementById("q_1_btn").addEventListener("click", function() {
+      document.getElementById("q_1").hidden = false;
+    }, false);
+
+    document.getElementById("q_2_btn").addEventListener("click", function() {
+      document.getElementById("q_2").hidden = false;
+    }, false);
+
+    document.getElementById("q_3_btn").addEventListener("click", function() {
+      document.getElementById("q_3").hidden = false;
+    }, false);
+
+    document.getElementById("q_4_btn").addEventListener("click", function() {
+      document.getElementById("q_4").hidden = false;
+    }, false);
+  </script>
 </body>
 </html>
